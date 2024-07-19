@@ -15,6 +15,24 @@ const todoResolver = {
                 }
             });
             return newTodo;
+        },
+        updateTodo: async (_, { id, todo }) => {
+            await prisma.todo.update({
+                where: { id: id },
+                data: {
+                    todo: todo
+                }
+            });
+            return { message: "Update Succesfully!" };
+        },
+        toggleTodo: async (_, { id, data }) => {
+            await prisma.todo.update({
+                where: { id: id },
+                data: {
+                    completed: data
+                }
+            });
+            return { message: "Update Succesfully! boolean" };
         }
     }
 };

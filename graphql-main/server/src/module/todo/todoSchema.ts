@@ -2,6 +2,10 @@ const todoSchema = `#graphql
 
     scalar Date
 
+    type ResponseType {
+        message: String
+    }
+
     type Todo{
         id: Int!
         todo: String
@@ -15,7 +19,9 @@ const todoSchema = `#graphql
     }
 
     type Mutation{
-        createTodo(todo: String): Todo
+        createTodo(todo: String): Todo,
+        updateTodo(id: Int, todo: String): ResponseType
+        toggleTodo(id: Int, data: Boolean): ResponseType
     }
 
 `
