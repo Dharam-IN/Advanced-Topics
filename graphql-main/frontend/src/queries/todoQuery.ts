@@ -11,3 +11,16 @@ export const GET_TODOS = gql`
         }
     }
 `
+
+export const CREATE_TODO = gql`
+#graphql
+
+    mutation CREATE_TODO($todo: String!) {
+        createTodo(todo: $todo){
+            id
+            todo
+            created_at
+            completed
+        }
+    }
+`
