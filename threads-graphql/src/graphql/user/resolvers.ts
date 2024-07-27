@@ -1,10 +1,13 @@
+import UserService, { CreateUserPayload } from "../../services/user"
+
 const queries = {
 
 }
 
 const mutations = {
-    createUser: (_: any, {}: {}) => {
-        return "hello"
+    createUser: async(_: any, payload: CreateUserPayload) => {
+        const res = await UserService.createUser(payload);
+        return res.id;
     }
 }
 

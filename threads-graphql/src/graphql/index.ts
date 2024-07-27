@@ -1,8 +1,8 @@
 import { ApolloServer } from '@apollo/server'
-import { graphql } from 'graphql';
 import { User } from './user';
 
 async function createGraphqlServer() {
+    
     const gqlServer = new ApolloServer({
         typeDefs: `
             type Query{
